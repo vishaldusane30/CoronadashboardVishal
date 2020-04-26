@@ -1,0 +1,53 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+      <br>
+      <br>
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaphtuChDOsi2TyZs3xwEaIV0RTJsNwnxtb1MZ-MRJhBwT5ihXUw"  id="icon" alt="User Icon" /> -->
+
+        <h1 style=" color: #56baed; ">
+           Timesheet Login
+          <small></small>
+      </h1>
+        <br>
+        <br>
+      </div>
+
+      <!-- Login Form -->
+      <form class="login100-form validate-form"   [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+          <!-- <input type="email" class="fadeIn second"  autocomplete="off" formControlName="email" id="email">
+              <div *ngIf="submitted && loginForm.controls.email.errors" class="invalid-feedback d-block">
+                <div *ngIf="loginForm.controls.email.errors.required">Email is required</div>
+              </div> -->
+              <input type="text" id="login" class="fadeIn second" name="login" formControlName="email" id="email" autocomplete="off" placeholder="Employee ID">
+              <div *ngIf="submitted && loginForm.controls.email.errors" class="invalid-feedback d-block">
+                  <div *ngIf="loginForm.controls.email.errors.required">Email is required</div>
+                </div>
+
+                <input type="password" id="login" class="fadeIn second"   placeholder="Password" autocomplete="off" formControlName="password" id="pwd">
+                <div *ngIf="submitted && loginForm.controls.password.errors" class="invalid-feedback d-block">
+                <div *ngIf="loginForm.controls.password.errors.required">Password is required</div>
+              </div>
+
+              <br>
+              <img  *ngIf="loading"  style="height: 34px;" src="assets/loadernew.gif" />
+              <br>
+              <br>
+              <!-- <button [disabled]="loading"  class="fadeIn fourth">Login</button> -->
+              <input type="submit"  [disabled]="loading" class="fadeIn fourth" value="Log In">
+
+        <!-- <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+        <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+        <input type="submit" class="fadeIn fourth" value="Log In"> -->
+      </form>
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+
+    </div>
+  </div>

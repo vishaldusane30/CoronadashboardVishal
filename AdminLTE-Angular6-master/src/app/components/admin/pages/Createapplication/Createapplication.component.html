@@ -1,0 +1,168 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+      <h1>
+        Application
+          <small></small>
+      </h1>
+      <ol class="breadcrumb">
+          <li>
+              <a href="#">
+                  <i class="fa fa-dashboard"></i>
+                  Home
+              </a>
+          </li>
+          <li class="active">Application</li>
+      </ol>
+  </section>
+
+
+  <!-- Main content -->
+  <section class="content">
+      <!-- <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Welcome to Timesheet Systems !! </h3>
+        </div>
+      </div> -->
+      <!-- <button type="button" style="margin: 3px 879px;" class="btn btn-primary" (click)="openModal(template)">Add Stock</button> -->
+
+      <div class="box box-default">
+
+          <div class="box">
+              <div class="box-header">
+                  <h3 class="box-title">Application Details</h3>
+                  <div class="box-tools pull-right">
+                      <button
+                          type="button"
+                          class="btn btn-primary"
+                          (click)="openModal(template)"
+                      >
+
+                          Add Application
+                      </button>
+
+                      <ng-template #template>
+                          <div class="modal-header">
+                              <h4 class="modal-title pull-left">Add Application</h4>
+                              <button
+                                  type="button"
+                                  class="close pull-right"
+                                  aria-label="Close"
+                                  (click)="modalRef.hide()"
+                              >
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <div class="modal-body">
+
+                            <form [formGroup]="Applicationform" class="form-horizontal" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+                              <div class="box-body">
+                                    <div class="form-group">
+                                      <label for="Release Name" class="col-sm-3 control-label txtalign">Application Name</label>
+                                        <div class="box-body">
+                                        <div class="row">
+                                          <div class="col-sm-6">
+                                              <input type="text" formControlName="ApplicationName" class="form-control" maxlength="20" placeholder="Application Name" [ngClass]="{ 'is-invalid': submitted && f.ApplicationName.errors }" />
+                                              <div *ngIf="submitted && f.ApplicationName.errors" class="invalid-feedback">
+                                                  <div *ngIf="f.ApplicationName.errors.required">Name is required</div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="Release Name" class="col-sm-3 control-label txtalign">Status</label>
+                                        <div class="box-body">
+                                        <div class="row">
+                                          <div class="col-sm-6">
+                                            <select id="department" name="department" formControlName="ApplicationStatus" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.ApplicationStatus.errors }">
+                                              <option value="0" selected>Select</option>
+                                              <option *ngFor="let opt of ddlStatusTypekeys" [value]="opt.value">
+                                                  {{opt.Name}}
+                                                </option>
+                                                 </select>
+                                            <div *ngIf="submitted && f.ApplicationStatus.errors" class="invalid-feedback">
+                                                  <div *ngIf="f.ApplicationStatus.errors.required">Status is required</div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                              </div>
+                              <div class="box-footer" style="text-align: center;">
+                                  <button type="submit" style="margin-right: 16px; "class=" btn btn-primary">Save</button>
+                                  <button class="btn btn-danger" type="button"  (click)="modalRef.hide()">Cancel</button>
+                                </div>
+                              </form>
+
+                          </div>
+                      </ng-template>
+                  </div>
+              </div>
+
+              <!-- /.box-header -->
+              <div class="box-body">
+                  <table class="table table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+                      <thead>
+                        <tr>
+                          <th *ngFor=" let key of keys">
+                            <ng-container *ngIf="key != 'ReportURL'"> {{key}}</ng-container>
+
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody >
+                        <tr *ngFor=" let res of arrDataTable; let i=index;">
+                          <!-- <td *ngFor=" let key of keys" >
+
+                              {{res[key]}}
+                          </td> -->
+
+                          <td *ngFor=" let key of keys" >
+                            <ng-container *ngIf="key === 'Action'; then LinkName ; else NonLinkName"> </ng-container>
+
+                          <ng-template #NonLinkName>
+                              <ng-container *ngIf="key != 'Action'"> {{res[key]}}</ng-container>
+                          </ng-template>
+                          <ng-template #LinkName>
+                              <a >
+                                  <i class="glyphicon glyphicon-pencil" style="padding-right: 20px;" (click)="openModalEdit(template,res[key])"> </i>
+                                  <i class="glyphicon glyphicon-trash"></i>
+                                </a>
+                        </ng-template>
+                          </td>
+                        </tr>
+                      </tbody>
+                      <!-- <tfoot>
+                        <tr>
+                            <th>Total</th>
+                            <th>{{totalcount}}</th>
+                        </tr>
+                    </tfoot> -->
+                      </table>
+              </div>
+              <!-- /.box-body -->
+          </div>
+
+      </div>
+
+  </section>
+  <!-- /.content -->
+</div>
+
+<script>
+  $(document).ready(function(){
+$(function () {
+  $('#example1').DataTable()
+  $('#example2').DataTable({
+    'paging'      : true,
+    'lengthChange': false,
+    'searching'   : false,
+    'ordering'    : true,
+    'info'        : true,
+    'autoWidth'   : false
+  })
+})
+});
+</script>

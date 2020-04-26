@@ -1,0 +1,99 @@
+
+              <!-- /.box-header -->
+              <div class="box-body">
+                <div class="row">
+                  <div class="col-xs-12">
+
+                    <!-- /.box -->
+                  </div>
+                </div>
+
+                          <!-- TABLE: LATEST ORDERS -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Statewise Cases Distribution</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table" style="  height: 350px;
+              overflow-y: scroll;">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th>State</th>
+                            <th>Confirmed</th>
+                            <th>Active</th>
+                            <th>Recover</th>
+                            <th>Death</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let row of arrDataTable" >
+                      <td>
+                        {{ row.state }}
+
+                      </td>
+                      <td>
+                        <span class="label label-success">{{ row.confirmed }}</span>
+
+                      </td>
+                      <td>
+                        {{ row.active }}
+
+                      </td>
+                      <td>
+                        {{ row.recovered }}
+
+                      </td>
+                      <td>
+                        <span class="label label-danger">{{ row.deaths }}</span>
+
+                      </td>
+                    </tr>
+
+                  <!-- <tr>
+                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                    <td>Call of Duty IV</td>
+                    <td><span class="label label-success">Shipped</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                    </td>
+                  </tr> -->
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+
+            <!-- /.box-footer -->
+
+
+          </div>
+
+
+              </div>
+              <!-- /.box-body -->
+
+
+<script>
+  $(document).ready(function(){
+$(function () {
+  $('#example1').DataTable()
+  $('#example2').DataTable({
+    'paging'      : true,
+    'lengthChange': false,
+    'searching'   : false,
+    'ordering'    : true,
+    'info'        : true,
+    'autoWidth'   : false
+  })
+})
+});
+</script>
