@@ -53,7 +53,7 @@
     "jqueryui": "^1.11.1",
     "jqwidgets-ng": "^8.2.0",
     "jszip": "^3.1.5",
-    "moment": "^2.18.1",
+    "moment": "^2.29.4",
     "morris.js": "^0.5.0",
     "ng-multiselect-dropdown": "^0.2.5",
     "ng2-charts": "^2.3.0",
